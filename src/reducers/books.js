@@ -1,13 +1,9 @@
 const initialState = {
-    books: [
-        {
-            id: 0,
-            title: "Hello World"
-        }
-    ],
+    isLoading:false,
+    books: [],
     ids:[]
 };
-export const books = (state = initialState,action) =>{
+export const items = (state = initialState,action) =>{
     switch(action.type){
         case 'ADD_BOOK':
             return {
@@ -19,7 +15,8 @@ export const books = (state = initialState,action) =>{
         case 'SET_BOOKS':
             return {
                 ...state,
-                books: action.payload
+                books: action.payload,
+                isLoading: true
             }
         default:
              return state;

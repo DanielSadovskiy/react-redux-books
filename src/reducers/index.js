@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import {books} from './books'
+import {items} from './books'
 export default combineReducers({
-    books
+    items
 })
