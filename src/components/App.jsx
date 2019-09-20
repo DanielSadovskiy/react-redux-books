@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { setBooks } from "./actions/books"
 import axios from 'axios'
-import {Container} from "react-bootstrap"
-import { TopMenu } from './components/Menu'
-import { BookCard } from './components/BookCard';
-const flexible = {
-  display: 'flex',
-  flexFlow: "row wrap",
-  width: "100%"
-}
+import { TopMenu } from './Menu'
+import { BookCard } from '../components/BookCard';
+import Sort from '../containers/Sort';
 class App extends Component {
   componentDidMount() {
     const { setBooks } = this.props;
@@ -21,7 +14,7 @@ class App extends Component {
 
   }
   render() {
-    const { books, isLoading } = this.props;
+    const { books, isLoading} = this.props;
     const { setBooks } = this.props;
     const newBooks = [
       {
@@ -33,12 +26,13 @@ class App extends Component {
     return (
       <div className="container">
         <TopMenu />
+        <Sort/>
         <header className="App-header">
             <div className="row">
               {
                 !isLoading ? <p>Loading...</p> :
-                  books.map(book => (
-                    <BookCard {...book} key={book.id} />
+                  books.map((book,i)=> (
+                    <BookCard key={i} {...book}  />
                   ))
               }
             </div>
@@ -50,11 +44,4 @@ class App extends Component {
     );
   }
 }
-const mapDispatchToProps = dispatch => ({
-  setBooks: books => dispatch(setBooks(books))
-})
-const mapStateToProps = ({ items }) => ({
-  books: items.books,
-  isLoading: items.isLoading
-})
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
