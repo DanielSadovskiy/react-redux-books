@@ -4,3 +4,20 @@ body {
 .menu{
     margin-bottom: 30px;
 }
+.search {
+    position: relative;
+}
+.search input{
+    width: 250px;
+}
+.search button{
+    position: absolute;
+    right: 0px;
+    
+}
+.btn_add-to-cart button{
+    width: 100%;
+}
+.book_card{
+    margin-bottom: 15px;
+}

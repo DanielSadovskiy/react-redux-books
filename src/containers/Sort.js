@@ -8,8 +8,8 @@ import { Sort } from '../components/Sort';
 const mapDispatchToProps = dispatch => ({
     ...bindActionCreators(sortAction,dispatch)
 })
-  const mapStateToProps = ({ items }) => ({
+  const mapStateToProps = ({ items, filter}) => ({
     books: items.sortedItem,
-    isLoading: items.isLoading
+    
   })
   export default connect(mapStateToProps, mapDispatchToProps)(Sort);

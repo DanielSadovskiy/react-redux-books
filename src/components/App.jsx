@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { TopMenu } from './Menu'
-import { BookCard } from '../components/BookCard';
+import  Menu from '../containers/Menu'
+import BookCard  from '../containers/BookCard';
 import Sort from '../containers/Sort';
 class App extends Component {
   componentDidMount() {
@@ -25,7 +25,7 @@ class App extends Component {
 
     return (
       <div className="container">
-        <TopMenu />
+        <Menu />
         <Sort/>
         <header className="App-header">
             <div className="row">

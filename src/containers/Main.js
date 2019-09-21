@@ -16,12 +16,22 @@ const sortBy = (books, sortedItem) => {
       return books;
   }
 };
+const filterBooks = (books, searchQuery) =>
+  books.filter(
+    o =>
+      o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
+      o.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0,
+  );
+
+const searchBooks = (books, filterBy, searchQuery) => {
+  return sortBy(filterBooks(books, searchQuery), filterBy);
+};
 
 const mapDispatchToProps = dispatch => ({
     ...bindActionCreators(booksActions,dispatch)
 })
-  const mapStateToProps = ({ items }) => ({
-    books: sortBy(items.books,items.sortedItem),
+  const mapStateToProps = ({ items,filter }) => ({
+    books:  searchBooks(items.books,items.sortedItem, filter.searchQuery),
     isLoading: items.isLoading
   })
   export default connect(mapStateToProps, mapDispatchToProps)(App);

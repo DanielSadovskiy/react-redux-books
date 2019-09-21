@@ -1,12 +1,12 @@
 const initialState = {
-    items:{}
+    items: []
 };
-export const cart = (state = initialState,action) =>{
-    switch(action.type){
+export const cart = (state = initialState, action) => {
+    switch (action.type) {
         case 'ADD_BOOK_TO_CART':
             return {
                 ...state,
-                items : [...state.items,
+                items: [...state.items,
                 action.payload
                 ]
             }
@@ -14,9 +14,9 @@ export const cart = (state = initialState,action) =>{
             return {
                 ...state,
                 items: state.items.filter(item => item.id !== action.payload)
-                
+
             }
         default:
-             return state;
+            return state;
     }
 }
