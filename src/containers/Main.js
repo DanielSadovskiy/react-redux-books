@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
     ...bindActionCreators(booksActions,dispatch)
 })
   const mapStateToProps = ({ items,filter }) => ({
-    books:  searchBooks(items.books,items.sortedItem, filter.searchQuery),
+    books: searchBooks(items.books,items.sortedItem, filter.searchQuery),
     isLoading: items.isLoading
   })
   export default connect(mapStateToProps, mapDispatchToProps)(App);

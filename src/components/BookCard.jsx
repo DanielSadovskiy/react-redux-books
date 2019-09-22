@@ -9,6 +9,7 @@ const cardBody = {
 }
 export const BookCard = (book) => {
     const { title, author, price, image,addToCart,countOfExactlyBook} = book;
+    
     return (
         <div className="book_card col-lg-2 col-md-3 col-sm-4 col-6">
             <div className="card h-100 d-flex flex-column justify-content-between">

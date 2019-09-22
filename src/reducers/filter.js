@@ -14,11 +14,7 @@ export const filter = (state = initialState, action) => {
                 ...state,
                 searchQuery : action.payload
             }
-        case 'SEARCH_BOOKS':
-            return {
-                ...state,
-                searchQuery : action.payload
-            }
+            
         default:
             return state;
     }
